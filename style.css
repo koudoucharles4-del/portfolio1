@@ -36,9 +36,29 @@ nav {
 .logo { font-size: 1.5rem; font-weight: bold; }
 .logo span { color: var(--primary-color); }
 
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 2rem; }
-nav ul li a { color: var(--text-white); text-decoration: none; font-size: 0.9rem; }
+nav ul {
+    display: flex;
+    list-style: none;
+    /* Permet le défilement horizontal sur mobile */
+    overflow-x: auto;
+    white-space: nowrap;
+    /* Cache la barre de défilement pour un look plus propre */
+    -ms-overflow-style: none;  /* Internet Explorer/Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 10px 0;
+}
+
+/* Cache la barre de défilement pour Chrome, Safari et Opera */
+nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+    /* Empêche les éléments de rétrécir */
+    flex: 0 0 auto; 
+}
 
 .hero {
     height: 100vh;
@@ -177,4 +197,5 @@ footer {
 .btn-link:hover {
     background: var(--primary-color);
     color: #000;
+
 }
